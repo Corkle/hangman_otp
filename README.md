@@ -3,6 +3,7 @@
 An OTP Application to play games of Hangman
 
 ## Setup 
+*Note*: Make sure you have [Elixir 1.4](http://elixir-lang.org/install.html) or greater installed
 
 ```sh
   git clone https://github.com/Corkle/hangman_otp.git
