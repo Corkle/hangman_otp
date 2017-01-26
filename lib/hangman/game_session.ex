@@ -13,7 +13,7 @@ defmodule Hangman.GameSession do
     do: GenServer.start_link(__MODULE__, id, name: {:global, {:session, id}})
 
   def init(id) do
-    secret = "this is my secret!"
+    secret = generate_secret() 
     state = %{
       id: id,
       status: :new_game,
@@ -79,6 +79,9 @@ defmodule Hangman.GameSession do
     |> String.codepoints
     |> Enum.map(fn x -> convert_letter(x, guessed) end) 
   end
+
+  defp generate_secret(),
+    do: Hangman.SecretWords.get_random()
 
   defp check_guess(true, fails), do: {:correct, fails}
   defp check_guess(_, fails), do: {:incorrect, fails - 1}

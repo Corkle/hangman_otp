@@ -14,7 +14,10 @@ defmodule Hangman do
          {:ok, state} <- get(id) do
            {:ok, state}
     else
-      _ -> {:error, "Count not connect GameSession"}
+      {:error, :failed_start} ->
+        {:error, "Failed to start GameSession"}
+      _ ->
+        {:error, "Could not connect GameSession"}
     end
   end
   

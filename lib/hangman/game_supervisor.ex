@@ -28,6 +28,6 @@ defmodule Hangman.GameSupervisor do
   defp do_spawn_session({:error, {:already_started, pid}}),
     do: {:ok, pid}
   defp do_spawn_session(_),
-    do: {:error, "Unable to start GameSession"}
+    do: {:error, :failed_start}
 
 end
